@@ -1,7 +1,17 @@
-
 .container {
     display: grid;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 80px;
+    grid-template-areas:
+        "Header Header Header"
+        "peças vazio vazio"
+        "pc vazio vazio"
+        "note vazio vazio"
+        "cell vazio vazio"
+        "tblt vazio vazio";
+    gap: 10px;
+    height: 100vh;
+    color: aquamarine;
 }
 body {
     background-color: #DEE8FC;
