@@ -1,0 +1,13 @@
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr ;
+}
+body {
+    background-color: #DEE8FC;
+}
+h1 {
+    color: #12A8FF;
+    font-family: "Share Tech Mono", monospace;
+    justify-self: center;
+}
