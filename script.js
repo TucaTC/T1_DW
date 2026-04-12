@@ -2,20 +2,22 @@
 
 // Simple login system using localStorage for demo
 document.addEventListener('DOMContentLoaded', function() {
+    const normalize = value => (value || '').toString().trim();
+    const getUsers = () => JSON.parse(localStorage.getItem('users')) || [];
+
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const username = document.getElementById('username').value;
+            const username = normalize(document.getElementById('username').value);
             const password = document.getElementById('password').value;
-            const role = document.getElementById('role').value;
             const message = document.getElementById('message');
 
-            let users = JSON.parse(localStorage.getItem('users')) || [];
-            const user = users.find(u => u.username === username && u.password === password && u.role === role);
+            const users = getUsers();
+            const user = users.find(u => u.username.toLowerCase() === username.toLowerCase() && u.password === password);
             if (user) {
-                localStorage.setItem('user', JSON.stringify({username, role}));
-                if (role === 'employee') {
+                localStorage.setItem('user', JSON.stringify({username: user.username, role: user.role}));
+                if (user.role === 'employee') {
                     window.location.href = 'admin.html';
                 } else {
                     window.location.href = 'index.html';
@@ -31,13 +33,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (registerForm) {
         registerForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const username = document.getElementById('regUsername').value;
+            const username = normalize(document.getElementById('regUsername').value);
             const password = document.getElementById('regPassword').value;
             const role = document.getElementById('regRole').value;
             const regMessage = document.getElementById('regMessage');
 
-            let users = JSON.parse(localStorage.getItem('users')) || [];
-            if (users.find(u => u.username === username)) {
+            if (!username || !password) {
+                regMessage.textContent = 'Preencha usuário e senha.';
+                return;
+            }
+
+            const users = getUsers();
+            if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
                 regMessage.textContent = 'Usuário já existe.';
             } else {
                 users.push({username, password, role});
@@ -46,6 +53,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => window.location.href = 'login.html', 2000);
             }
         });
+    }
+
+    const topUserLink = document.querySelector('.auth-link');
+    let currentUser = null;
+    try {
+        currentUser = JSON.parse(localStorage.getItem('user'));
+    } catch (e) {
+        currentUser = null;
+    }
+
+    if (topUserLink) {
+        if (currentUser && currentUser.username) {
+            topUserLink.textContent = `Olá, ${currentUser.username}`;
+            topUserLink.href = '#';
+            topUserLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('user');
+                window.location.href = 'index.html';
+            });
+        } else {
+            topUserLink.textContent = 'Entrar';
+            topUserLink.href = 'auth.html';
+        }
     }
 
     // Add to cart
