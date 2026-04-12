@@ -46,11 +46,26 @@ body {
     background: rgba(255, 255, 255, 0.25);
 }
 
+.admin-btn {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(76, 175, 80, 0.7);
+    transition: background 0.3s, transform 0.2s;
+}
+
 .home-link:hover,
 .auth-link:hover,
-.cart-link:hover {
+.cart-link:hover,
+.admin-btn:hover {
     background: rgba(255, 255, 255, 0.35);
     transform: translateY(-1px);
+}
+
+.admin-btn:hover {
+    background: rgba(76, 175, 80, 0.9);
 }
 
 header {
