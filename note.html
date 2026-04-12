@@ -1,8 +1,58 @@
 <!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <title>Notebooks</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebooks - TechShop</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="index.html">Início</a>
+    <header>
+        <h1>TechShop</h1>
+        <p>Notebooks</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="peças.html">Peças de Hardware</a></li>
+            <li><a href="pc.html">Computadores Pré-Montados</a></li>
+            <li><a href="cell.html">Celulares</a></li>
+            <li><a href="tblt.html">Tablets</a></li>
+            <li><a href="cart.html">Carrinho</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Registrar</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <h2>Notebooks de Alta Performance</h2>
+            <p>Portáteis para trabalho, estudo e entretenimento.</p>
+        </section>
+        <section class="products">
+            <div class="product">
+                <h3>Notebook Básico</h3>
+                <p>Para uso cotidiano e navegação.</p>
+                <p class="price">R$ 2.000,00</p>
+                <button class="add-to-cart" data-product="Notebook Básico" data-price="2000">Adicionar ao Carrinho</button>
+            </div>
+            <div class="product">
+                <h3>Notebook Gamer</h3>
+                <p>Para jogos e multitarefas pesadas.</p>
+                <p class="price">R$ 5.000,00</p>
+                <button class="add-to-cart" data-product="Notebook Gamer" data-price="5000">Adicionar ao Carrinho</button>
+            </div>
+            <div class="product">
+                <h3>Notebook Ultrabook</h3>
+                <p>Leve e potente para profissionais.</p>
+                <p class="price">R$ 4.500,00</p>
+                <button class="add-to-cart" data-product="Notebook Ultrabook" data-price="4500">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 TechShop. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
+</html>

@@ -1,8 +1,58 @@
 <!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <title>Peças de Hardware</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peças de Hardware - TechShop</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="index.html">Início</a>
+    <header>
+        <h1>TechShop</h1>
+        <p>Peças de Hardware</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="pc.html">Computadores Pré-Montados</a></li>
+            <li><a href="note.html">Notebooks</a></li>
+            <li><a href="cell.html">Celulares</a></li>
+            <li><a href="tblt.html">Tablets</a></li>
+            <li><a href="cart.html">Carrinho</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Registrar</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <h2>Peças de Hardware Avançadas</h2>
+            <p>Componentes de ponta para construir ou atualizar seu setup tech.</p>
+        </section>
+        <section class="products">
+            <div class="product">
+                <h3>Processadores Intel i9</h3>
+                <p>Performance extrema para tarefas intensivas.</p>
+                <p class="price">R$ 2.500,00</p>
+                <button class="add-to-cart" data-product="Processadores Intel i9" data-price="2500">Adicionar ao Carrinho</button>
+            </div>
+            <div class="product">
+                <h3>Placas de Vídeo RTX 4090</h3>
+                <p>Gráficos de última geração para gaming e criação.</p>
+                <p class="price">R$ 8.000,00</p>
+                <button class="add-to-cart" data-product="Placas de Vídeo RTX 4090" data-price="8000">Adicionar ao Carrinho</button>
+            </div>
+            <div class="product">
+                <h3>Memória RAM DDR5 32GB</h3>
+                <p>Velocidade e capacidade para multitarefas.</p>
+                <p class="price">R$ 800,00</p>
+                <button class="add-to-cart" data-product="Memória RAM DDR5 32GB" data-price="800">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 TechShop. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
+</html>

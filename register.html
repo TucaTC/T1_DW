@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar - TechShop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>TechShop</h1>
+        <p>Registrar</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="peças.html">Peças de Hardware</a></li>
+            <li><a href="pc.html">Computadores Pré-Montados</a></li>
+            <li><a href="note.html">Notebooks</a></li>
+            <li><a href="cell.html">Celulares</a></li>
+            <li><a href="tblt.html">Tablets</a></li>
+            <li><a href="cart.html">Carrinho</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="register-form">
+            <h2>Registrar</h2>
+            <form id="registerForm">
+                <label for="regUsername">Usuário:</label>
+                <input type="text" id="regUsername" required>
+                <label for="regPassword">Senha:</label>
+                <input type="password" id="regPassword" required>
+                <label for="regRole">Tipo:</label>
+                <select id="regRole">
+                    <option value="customer">Cliente</option>
+                    <option value="employee">Funcionário</option>
+                </select>
+                <button type="submit">Registrar</button>
+            </form>
+            <p id="regMessage"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 TechShop. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

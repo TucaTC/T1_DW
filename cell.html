@@ -1,8 +1,58 @@
 <!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <title>Celulares</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celulares - TechShop</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="index.html">Início</a>
+    <header>
+        <h1>TechShop</h1>
+        <p>Celulares</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="peças.html">Peças de Hardware</a></li>
+            <li><a href="pc.html">Computadores Pré-Montados</a></li>
+            <li><a href="note.html">Notebooks</a></li>
+            <li><a href="tblt.html">Tablets</a></li>
+            <li><a href="cart.html">Carrinho</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Registrar</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <h2>Celulares Inovadores</h2>
+            <p>Smartphones com tecnologia de ponta.</p>
+        </section>
+        <section class="products">
+            <div class="product">
+                <h3>Smartphone Básico</h3>
+                <p>Para chamadas e mensagens essenciais.</p>
+                <p class="price">R$ 800,00</p>
+                <button class="add-to-cart" data-product="Smartphone Básico" data-price="800">Adicionar ao Carrinho</button>
+            </div>
+            <div class="product">
+                <h3>Smartphone Premium</h3>
+                <p>Câmeras avançadas e bateria duradoura.</p>
+                <p class="price">R$ 3.000,00</p>
+                <button class="add-to-cart" data-product="Smartphone Premium" data-price="3000">Adicionar ao Carrinho</button>
+            </div>
+            <div class="product">
+                <h3>Smartphone Flagship</h3>
+                <p>O topo da linha com recursos exclusivos.</p>
+                <p class="price">R$ 5.500,00</p>
+                <button class="add-to-cart" data-product="Smartphone Flagship" data-price="5500">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 TechShop. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
+</html>
