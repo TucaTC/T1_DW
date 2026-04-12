@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add item (admin)
     const addItemForm = document.getElementById('addItemForm');
     if (addItemForm) {
+        console.log('Formulário addItemForm encontrado com sucesso');
         addItemForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const category = document.getElementById('category').value;
@@ -165,6 +166,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 customProducts[category].push(newProduct);
                 localStorage.setItem('customProducts', JSON.stringify(customProducts));
                 
+                console.log('Produto salvo:', newProduct);
+                
                 adminMessage.textContent = `✓ Item "${name}" adicionado com sucesso em ${category}!`;
                 adminMessage.style.color = '#4caf50';
                 addItemForm.reset();
@@ -178,14 +181,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 adminMessage.style.color = '#d32f2f';
             }
         });
-    } else {
-        console.warn('Formulário addItemForm não encontrado');
     }
 
     // Display custom products
     function displayCustomProducts() {
         const customProducts = JSON.parse(localStorage.getItem('customProducts')) || {};
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const currentPage = decodeURIComponent(window.location.pathname.split('/').pop() || 'index.html');
         let categoryKey = null;
 
         if (currentPage === 'peças.html') categoryKey = 'peças';
