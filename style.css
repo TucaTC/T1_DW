@@ -37,8 +37,7 @@ body {
   grid-auto-flow: column;
   gap: 10px;
 }
-.topbar-right { justify-content: end
-}
+.topbar-right { justify-content: end; }
 
 .home-link, .auth-link, .cart-link, .admin-btn {
   font-weight: bold;
@@ -202,4 +201,15 @@ footer {
   padding: 20px;
   margin-top: 40px;
   color: var(--text-dark);
+}
+
+.error-message {
+  color: #d32f2f;
+  text-align: center;
+  font-weight: bold;
+}
+.success-message {
+  color: #2e7d32;
+  text-align: center;
+  font-weight: bold;
 }

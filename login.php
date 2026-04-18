@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit">Entrar</button>
             </form>
             <p style="text-align: center; margin-top: 15px; color: var(--text-muted);">
-                Não tem conta? <a href="register.html" style="color: var(--primary);">Registrar-se</a>
+                Não tem conta? <a href="register.php" style="color: var(--primary);">Registrar-se</a>
             </p>
         </div>
     </main>
