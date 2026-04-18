@@ -206,7 +206,9 @@ main {
   display: grid;
   gap: 5px;
 }
-#cartItems div { padding: 10px; border-bottom: 1px solid var(--primary); }
+#cartItems div { padding: 10px; border-bottom: 1px solid var(--primary); display: flex; justify-content: space-between; align-items: center; }
+#cartItems button { background: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
+#cartItems button:hover { background: #cc0000; }
 #total {
   grid-area: total;
   font-size: 1.5em;
