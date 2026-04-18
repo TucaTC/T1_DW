@@ -16,35 +16,53 @@ body {
   background: linear-gradient(135deg, #e0e0e0, #f0f0f0, #d0d0d0);
   color: var(--text-dark);
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
 }
 
-/* Topbar com Grid */
+/* Container para o conteúdo principal */
+.page-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto auto auto;
+  min-height: 100vh;
+}
+
+/* Topbar com Grid Template Areas */
 .topbar {
   position: sticky;
   top: 0;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "left center right";
+  grid-template-columns: 100px auto 1fr;
   align-items: center;
   padding: 6px 16px;
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   box-shadow: 0 2px 10px rgba(100, 149, 237, 0.15);
   z-index: 1000;
 }
-.topbar-left, .topbar-right {
+.topbar-left {
+  grid-area: left;
   display: grid;
   grid-auto-flow: column;
   gap: 10px;
 }
-.topbar-right { justify-content: end; }
+.topbar-right {
+  grid-area: right;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  justify-content: end;
+}
 
 .home-link, .auth-link, .cart-link, .admin-btn {
   font-weight: bold;
+  font-size: 0.9em;
   color: #fff;
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 2px 6px;
+  border-radius: 6px;
   transition: background 0.3s, transform 0.2s;
 }
 .home-link, .cart-link { background: rgba(255, 255, 255, 0.15); }
@@ -58,6 +76,7 @@ body {
 .admin-btn:hover { background: rgba(76, 175, 80, 0.9); }
 
 header {
+  grid-area: header;
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   padding: 20px;
   text-align: center;
@@ -67,6 +86,7 @@ header h1 { margin: 0; font-size: 3em; color: #4a4a4a; text-shadow: 0 0 10px var
 header p { margin: 10px 0 0; font-size: 1.2em; color: var(--text-muted); }
 
 main {
+  grid-area: main;
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -82,12 +102,16 @@ main {
   box-shadow: var(--shadow);
 }
 
-/* Categorias e Produtos com Grid Responsivo */
+/* Categorias e Produtos com Grid Template Areas */
 .categories, .products {
   display: grid;
+  grid-template-areas:
+    "product1 product2 product3"
+    "product4 product5 product6";
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
+
 .category, .product {
   background: var(--bg-light);
   padding: 20px;
@@ -119,7 +143,7 @@ main {
   background: linear-gradient(45deg, var(--secondary), var(--primary));
 }
 
-/* Formulários com Grid */
+/* Formulários com Grid Template Areas */
 .login-form, .register-form, .admin-form {
   max-width: 400px;
   margin: 20px auto;
@@ -128,9 +152,25 @@ main {
   border-radius: 10px;
   box-shadow: var(--shadow);
   display: grid;
+  grid-template-areas:
+    "title"
+    "message"
+    "form";
   gap: 15px;
 }
+
+.login-form h2, .register-form h2, .admin-form h2 {
+  grid-area: title;
+  text-align: center;
+  margin: 0;
+}
+
+.error-message, .success-message {
+  grid-area: message;
+}
+
 .login-form form, .register-form form, .admin-form form {
+  grid-area: form;
   display: grid;
   gap: 10px;
 }
@@ -146,7 +186,7 @@ main {
   border-radius: 5px;
 }
 
-/* Carrinho com Grid */
+/* Carrinho com Grid Template Areas */
 .cart {
   max-width: 600px;
   margin: 0 auto;
@@ -155,14 +195,34 @@ main {
   border-radius: 10px;
   box-shadow: var(--shadow);
   display: grid;
+  grid-template-areas:
+    "items"
+    "total"
+    "checkout";
   gap: 15px;
 }
-#cartItems { display: grid; gap: 5px; }
+#cartItems {
+  grid-area: items;
+  display: grid;
+  gap: 5px;
+}
 #cartItems div { padding: 10px; border-bottom: 1px solid var(--primary); }
-#total { font-size: 1.5em; text-align: center; color: var(--primary); margin: 20px 0; }
-#checkout { display: block; margin: 0 auto; padding: 15px 30px; width: fit-content; }
+#total {
+  grid-area: total;
+  font-size: 1.5em;
+  text-align: center;
+  color: var(--primary);
+  margin: 20px 0;
+}
+#checkout {
+  grid-area: checkout;
+  display: block;
+  margin: 0 auto;
+  padding: 15px 30px;
+  width: fit-content;
+}
 
-/* Auth Options */
+/* Auth Options com Grid Template Areas */
 .auth-options {
   max-width: 420px;
   margin: 40px auto;
@@ -172,9 +232,14 @@ main {
   box-shadow: 0 0 20px rgba(100, 149, 237, 0.18);
   text-align: center;
   display: grid;
+  grid-template-areas:
+    "title"
+    "buttons";
   gap: 20px;
 }
+
 .auth-buttons {
+  grid-area: buttons;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
@@ -196,6 +261,7 @@ main {
 }
 
 footer {
+  grid-area: footer;
   background: #b0b0b0;
   text-align: center;
   padding: 20px;
