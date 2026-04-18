@@ -37,7 +37,8 @@ body {
   grid-auto-flow: column;
   gap: 10px;
 }
-.topbar-right { justify-content: end; }
+.topbar-right { justify-content: end
+}
 
 .home-link, .auth-link, .cart-link, .admin-btn {
   font-weight: bold;
