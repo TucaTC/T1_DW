@@ -196,10 +196,12 @@ main {
   box-shadow: var(--shadow);
   display: grid;
   grid-template-areas:
-    "items"
-    "total"
-    "checkout";
+  "titulo"
+  "items"
+  "total"
+  "checkout";
   gap: 15px;
+  text-align: center;
 }
 #cartItems {
   grid-area: items;
