@@ -49,6 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="page-container">
     <div class="topbar">
         <div class="topbar-left">
             <a href="index.html" class="home-link">Início</a>
@@ -78,5 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
 
     <footer>© 2026 TechShop. Todos os direitos reservados.</footer>
+    </div>
 </body>
 </html>

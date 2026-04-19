@@ -24,12 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="page-container-login">
     <div class="topbar">
       <div class="topbar-left">
           <a class="home-link" href="index.html">Início</a>
-          <a class="cart-link" href="cart.html">Carrinho</a>
       </div>
       <div class="topbar-right">
+          <a class="cart-link" href="cart.html">Carrinho</a>
           <a class="auth-link" href="auth.php">Entrar</a>
       </div>
     </div>
@@ -65,5 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
 
     <footer>© 2026 TechShop. Todos os direitos reservados.</footer>
+    </div>
 </body>
 </html>

@@ -29,6 +29,17 @@ body {
   min-height: 100vh;
 }
 
+.page-container-login {
+  display: grid;
+  grid-template-areas:
+    "topbar"
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto auto auto;
+  min-height: 100vh;
+}
+
 /* Topbar com Grid Template Areas */
 .topbar {
   position: sticky;
