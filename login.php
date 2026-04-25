@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="topbar-left">
             <a href="index.html" class="home-link">Início</a>
         </div>
-        <h2 style="color:#fff; margin:100;">Acessar Conta</h2>
+        <h2 style="color:#fff; margin:0;">Acessar Conta</h2>
         <div class="topbar-right"></div>
     </div>
 
