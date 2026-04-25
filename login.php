@@ -2,7 +2,7 @@
 // login.php
 session_start();
 
-// 🔒 Em produção, substitua por consulta PDO/MySQLi
+//  Em produção, substitua por consulta PDO/MySQLi
 $usuarios = [
     ['username' => 'admin', 'password' => password_hash('admin123', PASSWORD_DEFAULT), 'role' => 'employee'],
     ['username' => 'cliente', 'password' => password_hash('cliente123', PASSWORD_DEFAULT), 'role' => 'customer']
