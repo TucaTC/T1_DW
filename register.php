@@ -24,7 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<<<<<<< HEAD
     <div class="page-container-login" >
+=======
+
+<div class="page-container-login">
+>>>>>>> ce2c65065f6b196fe5f4118a51d1dd5332638e90
     <div class="topbar">
       <div class="topbar-left">
           <a class="home-link" href="index.html">Início</a>
