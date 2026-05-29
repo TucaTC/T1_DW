@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 async function carregarProdutos() {
 
     // 1. Buscar o arquivo JSON
-    const resposta = await fetch('produtos.json');
+    const resposta = await fetch('produtos_pdo.php');
 
     // 2. Converter para objeto JavaScript
     const produtos = await resposta.json();
@@ -105,16 +105,21 @@ async function carregarProdutos() {
         const card = `
                         <div class="product-card">
                             <img src="${prod.imagem}">
-                            <h4>${prod.produto}</h4>
+                            <h4>${prod.nome}</h4>
                             <div class="price">R$ ${prod.preco.toFixed(2)}</div>
-                            <button>Comprar</button>
+                            <button class="add-to-cart" data-product="${prod.nome}" data-price="${prod.preco}">Comprar</button>
                         </div>
                     `;
 
         // 6. Inserir na tela
         container.innerHTML += card;
     }
+} catch (erro) {
+    console.error('Erro ao carregar produtos:', erro);
+    container.innerHTML = '<p>Erro ao carregar produtos. Tente novamente.</p>';
 }
 
-// 7. Executar função
-carregarProdutos();
+// 7. Executar função quando a página carregar
+if (document.getElementById('listaProdutos')) {
+    carregarProdutos();
+}

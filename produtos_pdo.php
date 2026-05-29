@@ -19,8 +19,8 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     $idSelecionado = null;
-    // paranetro id
-    if (isset($_GET['id'])) {
+    // paranetro tipo
+    if (isset($_GET['tipo'])) {
         $idSelecionado = $_GET['tipo'];
     } else {
         header("Location: index.php");
