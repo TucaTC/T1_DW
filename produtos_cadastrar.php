@@ -52,15 +52,29 @@ try {
     $sql = "INSERT INTO produtos (id, nome, preco, imagem)
 						  VALUES (:id, :nome, :preco, :imagem)";
 */
-    $sql = "INSERT INTO produtos (nome, preco, imagem)
-						  VALUES (:nome, :preco, :imagem)";
+    // Normaliza nomes aceitos no JSON: 'nome' ou 'produto'
+    $produtoNome = isset($dados['nome']) ? $dados['nome'] : (isset($dados['produto']) ? $dados['produto'] : null);
+    $preco = isset($dados['preco']) ? $dados['preco'] : null;
+    $imagem = isset($dados['imagem']) ? $dados['imagem'] : '';
+    $tipo = isset($dados['tipo']) ? $dados['tipo'] : '';
 
-	$stmt = $pdo->prepare($sql);
+    if (empty($produtoNome) || $preco === null) {
+        echo json_encode([
+            "sucesso" => false,
+            "mensagem" => "Dados incompletos. 'nome' (ou 'produto') e 'preco' são obrigatórios."
+        ]);
+        exit;
+    }
 
-    //$stmt->bindValue(":id", $dados["id"]);
-    $stmt->bindValue(":nome", $dados["nome"]);
-    $stmt->bindValue(":preco", $dados["preco"]);
-    $stmt->bindValue(":imagem", $dados["imagem"]);
+    $sql = "INSERT INTO produtos (produto, preco, imagem, tipo)
+                          VALUES (:produto, :preco, :imagem, :tipo)";
+
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->bindValue(":produto", $produtoNome);
+    $stmt->bindValue(":preco", $preco);
+    $stmt->bindValue(":imagem", $imagem);
+    $stmt->bindValue(":tipo", $tipo);
 
     $stmt->execute();
 
