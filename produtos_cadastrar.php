@@ -29,6 +29,10 @@ if (!is_array($dados)) {
     $dados = $_POST;
 }
 
+if (!is_array($dados)) {
+    $dados = [];
+}
+
 try {
 
  // CONFIGURAÇÃO DO BANCO
@@ -56,8 +60,8 @@ try {
     $sql = "INSERT INTO produtos (id, nome, preco, imagem)
 						  VALUES (:id, :nome, :preco, :imagem)";
 */
-    // Normaliza nomes aceitos no JSON: 'nome' ou 'produto'
-    $produtoNome = isset($dados['nome']) ? $dados['nome'] : (isset($dados['produto']) ? $dados['produto'] : null);
+    // Normaliza nomes aceitos no payload: 'produto' ou 'nome'
+    $produtoNome = isset($dados['produto']) ? $dados['produto'] : (isset($dados['nome']) ? $dados['nome'] : null);
     $preco = isset($dados['preco']) ? $dados['preco'] : null;
     $imagem = isset($dados['imagem']) ? $dados['imagem'] : '';
     $tipo = isset($dados['tipo']) ? $dados['tipo'] : '';

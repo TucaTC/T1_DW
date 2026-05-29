@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const preco = Number(document.getElementById('preco').value);
         const tipo = document.getElementById('category').value;
 
-        if (!produto || !imagem || !preco) {
+        if (!produto || !imagem || Number.isNaN(preco)) {
             adminMessage.textContent = 'Preencha todos os campos corretamente.';
             adminMessage.style.color = 'red';
             return;
         }
 
         const payload = {
-            nome: produto,
+            produto: produto,
             imagem: imagem,
             preco: preco,
             tipo: tipo
@@ -34,7 +34,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify(payload)
             });
 
-            const data = await response.json();
+            const texto = await response.text();
+            let data = null;
+            try {
+                data = JSON.parse(texto);
+            } catch (parseError) {
+                console.error('Resposta não é JSON:', texto);
+                adminMessage.textContent = 'Erro: resposta inválida do servidor.';
+                adminMessage.style.color = 'red';
+                return;
+            }
 
             if (response.ok && data.sucesso) {
                 adminMessage.textContent = data.mensagem;
