@@ -23,7 +23,11 @@ Invoke-RestMethod -Uri "http://localhost/fatec/backend/produtos_cadastrar.php" -
 */
 header("Content-Type: application/json");
 
-$dados = json_decode(file_get_contents("php://input"), true);
+$rawInput = file_get_contents("php://input");
+$dados = json_decode($rawInput, true);
+if (!is_array($dados)) {
+    $dados = $_POST;
+}
 
 try {
 
