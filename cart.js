@@ -67,11 +67,11 @@ function displayCart() {
 }
 
 // Initialize cart functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Add event listeners to add-to-cart buttons
     const addButtons = document.querySelectorAll('.add-to-cart');
     addButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const product = this.getAttribute('data-product');
             const price = this.getAttribute('data-price');
             if (product && price) {
@@ -85,3 +85,36 @@ document.addEventListener('DOMContentLoaded', function() {
         displayCart();
     }
 });
+async function carregarProdutos() {
+
+    // 1. Buscar o arquivo JSON
+    const resposta = await fetch('produtos.json');
+
+    // 2. Converter para objeto JavaScript
+    const produtos = await resposta.json();
+
+    // 3. Selecionar onde vai mostrar
+    const container = document.getElementById('listaProdutos');
+
+    // 4. Percorrer os produtos
+    for (let i = 0; i < produtos.length; i++) {
+
+        const prod = produtos[i];
+
+        // 5. Criar HTML do produto
+        const card = `
+                        <div class="product-card">
+                            <img src="${prod.imagem}">
+                            <h4>${prod.produto}</h4>
+                            <div class="price">R$ ${prod.preco.toFixed(2)}</div>
+                            <button>Comprar</button>
+                        </div>
+                    `;
+
+        // 6. Inserir na tela
+        container.innerHTML += card;
+    }
+}
+
+// 7. Executar função
+carregarProdutos();

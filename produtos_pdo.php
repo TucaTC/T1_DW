@@ -6,10 +6,10 @@ header("Content-Type: application/json; charset=UTF-8");
 try {
 
     // CONFIGURAÇÃO DO BANCO
-    $host    = "localhost";
-    $banco   = "testedb";
-    $usuario = "root";
-    $senha   = "";
+    $host    = "sql102.infinityfree.com";
+    $banco   = "if0_41382792_techshop";
+    $usuario = "if0_41382792";
+    $senha   = "56862022Aa";
 
     // CONEXÃO PDO
     $pdo = new PDO( "mysql:host=$host;dbname=$banco;charset=utf8",
@@ -28,7 +28,7 @@ try {
     }
     
     // SQL
-    $sql = "SELECT * FROM produtos2 WHERE tipo = :tipo";
+    $sql = "SELECT * FROM produtos WHERE tipo = :tipo";
     // PREPARA A QUERY
     $stmt = $pdo->prepare($sql);
     // EXECUTA
